@@ -16,6 +16,10 @@ go build -o OUTPUT_AGENT_BINARY cmd/agent/main.go
 All settings read from .env file placed near binary or if run through 'go run' - in project root dir
 Database file for sqlite will be created automatically near binary or in project root if started as 'go run'
 
+Just rename .env.example to .env (with default values)
+By default HTTP port will be 1234, GRPC - 5000
+
+
 # Default ENV params
 ```
 APP_ENV=production
