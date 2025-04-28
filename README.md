@@ -181,7 +181,8 @@ For sqlite DB only APP_DB_TYPE & APP_DB_NAME are used
    ## api/v1/expressions
    ### OK Expression.
    Expect code 200 and response
-   ```json
+   ```http
+   GET http://localhost/api/v1/expressions
    {
        "expressions": [
            {
@@ -203,14 +204,11 @@ For sqlite DB only APP_DB_TYPE & APP_DB_NAME are used
        ]
    }
    ```
-
-   ```http
-   GET http://localhost/api/v1/expressions
-   ```
    ## api/v1/expressions/{ID}
    ### OK Expression.
    Expect code 200 and response
-   ```json
+   ```http
+   GET http://localhost/api/v1/expressions/04F88C13-4BD9-B8A4-E1B5-6C9C4A72FCED
        {
         "id": "04F88C13-4BD9-B8A4-E1B5-6C9C4A72FCED",
         "expression": "2-2/3",
@@ -219,10 +217,6 @@ For sqlite DB only APP_DB_TYPE & APP_DB_NAME are used
         "created_at": null,
         "updated_at": null
         }
-   ```
-
-   ```http
-   GET http://localhost/api/v1/expressions
    ```
 
 You can do a simple test with curl like
