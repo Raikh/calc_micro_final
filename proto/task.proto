@@ -1,0 +1,25 @@
+syntax = "proto3"; // версия proto файлов
+package task; // название пакета
+option go_package = "github.com/raikh/calc_micro_final/proto";
+
+message Empty {
+
+}
+
+message TaskResponse {
+    string  Id = 1;
+	double Arg1 = 2;
+    double Arg2 = 3;
+    string Operation = 4;
+    int64 OperationTime = 5;
+}
+
+message TaskResult {
+    string Id = 1;
+    double Result = 2;
+}
+
+service TaskService {
+    rpc Task (Empty) returns (TaskResponse);
+    rpc CalculatedTask (TaskResult) returns (Empty);
+}
