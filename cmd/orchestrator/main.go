@@ -151,6 +151,10 @@ func (ts *TaskServer) CalculatedTask(ctx context.Context, calculatedTask *pb.Tas
 		return &pb.Empty{}, status.Error(codes.NotFound, "Task not found")
 	}
 
+	if task.Completed {
+		return &pb.Empty{}, status.Error(codes.AlreadyExists, "Task already completed")
+	}
+
 	task.Result = &calculatedTask.Result
 	task.Completed = true
 	task.Update()
