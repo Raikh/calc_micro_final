@@ -153,16 +153,16 @@ For sqlite DB only APP_DB_TYPE & APP_DB_NAME are used
       "password": "123"
    }
    ```
-   ## api/v1/calculate
+   ## api/calculate
    ### Wrong HTTP Method.
    Expect code 500 and {"error": "Invalid request"}
    ```http
-   GET http://localhost/api/v1/calculate
+   GET http://localhost/api/calculate
    ```
    ### OK Expression.
    Expect code 201 and {"id": "0A2DDEF9-F67C-6899-5F72-25639EEBD08F"}
    ```http
-   POST http://localhost/api/v1/calculate
+   POST http://localhost/api/calculate
    Content-Type: application/json
 
    {
@@ -172,17 +172,17 @@ For sqlite DB only APP_DB_TYPE & APP_DB_NAME are used
    ### Empty or Incorrect expression.
    Expect code 422 and {"error": "Invalid request body"}
    ```http
-   POST http://localhost/api/v1/calculate
+   POST http://localhost/api/calculate
    Content-Type: application/json
    {
      "expression": ""
    }
    ```
-   ## api/v1/expressions
+   ## api/expressions
    ### OK Expression.
    Expect code 200 and response
    ```http
-   GET http://localhost/api/v1/expressions
+   GET http://localhost/api/expressions
    {
        "expressions": [
            {
@@ -204,11 +204,11 @@ For sqlite DB only APP_DB_TYPE & APP_DB_NAME are used
        ]
    }
    ```
-   ## api/v1/expressions/{ID}
+   ## api/expressions/{ID}
    ### OK Expression.
    Expect code 200 and response
    ```http
-   GET http://localhost/api/v1/expressions/04F88C13-4BD9-B8A4-E1B5-6C9C4A72FCED
+   GET http://localhost/api/expressions/04F88C13-4BD9-B8A4-E1B5-6C9C4A72FCED
        {
         "id": "04F88C13-4BD9-B8A4-E1B5-6C9C4A72FCED",
         "expression": "2-2/3",
@@ -221,7 +221,7 @@ For sqlite DB only APP_DB_TYPE & APP_DB_NAME are used
 
 You can do a simple test with curl like
 ```
-curl --location 'localhost/api/v1/calculate' \
+curl --location 'localhost/api/calculate' \
 --header 'Content-Type: application/json' \
 --data '{
   "expression": "2+2*2"
